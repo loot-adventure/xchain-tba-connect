@@ -50,4 +50,14 @@ module.exports = async function (taskArgs, hre) {
     } else {
         console.log("*source already set*")
     }
+
+    let tx02 = await(
+        //await localContractInstance.setLootNft('0x3D7169410a843E2601e79796ec40e16ff0bd0E92')
+        //await localContractInstance.setLootNft('0xDc5b8F3971F5c4B60FB13d39cE65Bea7Dee8aEA7') //mumbai
+        //await localContractInstance.setLootNft('0xcaD30e84e38597C1791B30DD41705eA3a16d7D0d') //bsc-testnet
+        await localContractInstance.setLootNft('0x24fc344e49105fe55A9709f0B76bd5D9aC4FF6F8') //opt-goerli
+    );
+    tx02.wait();
+    console.log(`set LootNft Address....`);
+    console.log(`tx02: ${tx02}`);
 }
