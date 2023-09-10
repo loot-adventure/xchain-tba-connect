@@ -12,12 +12,9 @@ require('./tasks');
 
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const API_URL_MUMBAI = process.env.API_URL_MUMBAI;
-const API_URL_SHIBUYA = process.env.API_URL_SHIBUYA;
 const API_URL_SEPOLIA = process.env.API_URL_SEPOLIA;
 const API_URL_BSC = process.env.API_URL_BSC;
-const API_URL_FUJI = process.env.API_URL_FUJI;
 const API_KEY_MUMBAI = process.env.API_KEY_MUMBAI;
-const API_KEY_BSC = process.env.API_KEY_BSC;
 const API_URL_OPTGOERLI = process.env.API_URL_OPTGOERLI
 
 // You need to export an object to set up your config
@@ -83,22 +80,6 @@ module.exports = {
   },
 
   networks: {
-    ethereum: {
-      url: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
-      chainId: 1,
-      accounts: [ PRIVATE_KEY ],
-    },
-    avalanche: {
-      url: "https://api.avax.network/ext/bc/C/rpc",
-      chainId: 43114,
-      accounts: [ PRIVATE_KEY ],
-    },
-    polygon: {
-      url: "https://rpc-mainnet.maticvigil.com",
-      chainId: 137,
-      accounts: [ PRIVATE_KEY ],
-    },
-
     sepolia: {
       url: API_URL_SEPOLIA,
       chainId: 11155111,
@@ -114,11 +95,6 @@ module.exports = {
       chainId: 97,
       accounts: [PRIVATE_KEY],
     },
-    fuji: {
-      url: API_URL_FUJI,
-      chainId: 43113,
-      accounts: [PRIVATE_KEY],
-    },
     'optimism-goerli': {
       url: API_URL_OPTGOERLI,
       chainId: 420,
@@ -132,19 +108,7 @@ module.exports = {
   },
   etherscan: {  // copy the Etherscan object from the verify Contracts secion on Dashboard 
     apiKey: {
-      mch: 'abc',
       polygonMumbai: API_KEY_MUMBAI
     },
-    customChains: [
-      {
-        network: 'mch',
-        chainId: 420,
-        urls: {
-        // Blockscout
-        apiURL: 'https://explorer.oasys.sand.mchdfgh.xyz/api',
-        browserURL: 'https://explorer.oasys.sand.mchdfgh.xyz'
-        }
-       },
-    ],
   }
 };
